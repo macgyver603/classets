@@ -1,0 +1,23 @@
+{
+  "name": "classets",
+  "version": "0.0.1",
+  "description": "A teraslice asset bundle with processors developed for various school-related use cases",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macgyver603/classets.git"
+  },
+  "author": "Zach Burnham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/macgyver603/classets/issues"
+  },
+  "homepage": "https://github.com/macgyver603/classets#readme",
+  "dependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
