@@ -1,0 +1,17 @@
+{
+    "name": "classets",
+    "version": "0.0.1",
+    "description": "A teraslice asset bundle with processors developed for various school-related use cases",
+    "dependencies": {
+        "@terascope/job-components": "^0.23.3",
+        "@terascope/utils": "^0.20.1",
+        "bluebird": "^3.5.5",
+        "nanoid": "^2.1.1"
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/macgyver603/classets.git"
+    },
+    "license": "MIT"
+}

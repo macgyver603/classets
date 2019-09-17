@@ -3,7 +3,12 @@
   "version": "0.0.1",
   "description": "A teraslice asset bundle with processors developed for various school-related use cases",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --ignore-path .gitignore --ext .js .",
+    "lint:fix": "yarn lint --fix",
+    "test": "jest",
+    "test:watch": "jest --coverage=false --notify --watch --onlyChanged",
+    "test:debug": "env DEBUG='*teraslice*' jest --detectOpenHandles --coverage=false --runInBand",
+    "postinstall": "yarn --cwd ./asset --prod --no-progress"
   },
   "repository": {
     "type": "git",
@@ -16,8 +21,11 @@
   },
   "homepage": "https://github.com/macgyver603/classets#readme",
   "dependencies": {
-    "eslint": "^6.3.0",
+    "eslint": "^6.2.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2"
+  },
+  "devDependencies": {
+    "editorconfig": "^0.15.3"
   }
 }
