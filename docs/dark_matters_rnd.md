@@ -4,9 +4,9 @@
 
 This datagen processor will generate information about this fictional company's R&D projects. Specifically created for the CIS 405 team project, it will generate BI records with 2 key facts and 3 key dimensions (technically 4 if you include the `project_uuid`). Each record represents a specific R&D project (assuming a unique uuid in the dataset), and will contain the following information:  
 
-- `project_uuid`: Project ID. Will be determined randomly to differentiate project records.  
+- `project_uuid`: Project ID. Will be determined randomly to differentiate project records and is limited to alphanumericals for compatibility with Excel.  
 - `project_cost` (fact 1): Overall cost (in $1k's) of the R&D project including labor, materials, production, etc.  
-- `cost_reduction` (fact 2): Overall reduction of manufacturing, maintenance, and operational expenses for our next 100 launches in $1k's  
+- `savings` (fact 2): Overall reduction of manufacturing, maintenance, and operational expenses for our next 100 launches in $1k's  
 - `location` (dimension 1): Facility location for the R&D project by US state (This generator assumes you provided a valid array of two-digit state names and will break if not...)  
 - `funding_agency` (dimension 2): Agency/organization funding the R&D project  
 - `subsystem` (dimension 3): List of subsystems the R&D projects will span  
@@ -73,11 +73,20 @@ This is a free market, so any array of entities/organizations will be allowed. M
 Pretty much just a list of rocket subsystems or subcomponents.
 
 
+## `formatted_field_names`
+
+| Valid Options | Default | Required |
+| ----------- | ------- | -------- |
+| Boolean | `false` | N |  
+
+Determines whether or not to lowercase the field names and replace spaces with `_`
+
+
 ## `biasing`
 
 | Valid Options | Default | Required |
 | ----------- | ------- | -------- |
-| Object describing biasing relations | `null` | Y |  
+| Object describing biasing relations | '' | Y |  
 
 This isn't filtered right now, so invalid configs will result in broken jobs. With the following example, a funding agency will be randomly selected and used to alter the probability of selecting different locations. (`biasing_probability` influences the likeliness of dimension biasing, so a `0` means there will be no dimension biasing, and a `1` means that there will always be dimension biasing.) After randomly generating a project cost and project savings, the location will be used to either increase or decrease the cost, and the subsystem will be used to increase or decrease the savings.  
 
@@ -135,11 +144,11 @@ Paired with the [`file`-assets](https://github.com/terascope/file-assets), this 
 
 ```
 {
-    "project_uuid": "5a414a2"
-    "project_cost": 385,
-    "cost_reduction": 1925,
-    "location": "AZ",
-    "funding_agency": "ASU",
-    "subsystem": "propulsion"
+    "Project ID": "5a414a2"
+    "Project Cost": 385,
+    "Project Savings": 1925,
+    "Location": "AZ",
+    "Funding Agency": "ASU",
+    "Subsystem": "propulsion"
 }
 ```
