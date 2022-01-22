@@ -6,7 +6,7 @@
         "@terascope/job-components": "^0.23.3",
         "@terascope/utils": "^0.20.1",
         "bluebird": "^3.5.5",
-        "nanoid": "^2.1.1"
+        "nanoid": "^3.1.31"
     },
     "devDependencies": {},
     "repository": {
